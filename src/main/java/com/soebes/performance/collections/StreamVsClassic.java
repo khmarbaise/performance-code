@@ -5,7 +5,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class StreamVsClassic {
+public final class StreamVsClassic {
+
+  private StreamVsClassic() {
+  }
+
   public static int[] removeDuplicates(int[] arr) {
     if (arr == null || arr.length == 0) {
       return arr;

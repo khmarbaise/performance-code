@@ -5,14 +5,19 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class BenchmarkUtils {
 
   public static void runBenchmark(Class<?> clazz) throws Exception {
+    var reportsDirectory = Path.of("reports");
+    Files.createDirectory(reportsDirectory);
     Options opt = new OptionsBuilder()
         .include(clazz.getSimpleName())
         .resultFormat(ResultFormatType.JSON)
         .shouldDoGC(true)
-        .result("reports/" + clazz.getSimpleName() + ".json")
+        .result(reportsDirectory.resolve(String.format("%s.json", clazz.getSimpleName())).toString())
         .jvmArgsAppend("-Djmh.stack.period=1")
         //.warmupIterations(2)
         //.measurementIterations(10)
