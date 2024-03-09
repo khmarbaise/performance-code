@@ -18,4 +18,8 @@ public final class IntegerDuplication {
   public static List<Integer> stream(List<Integer> values) {
     return values.stream().map(v -> v * 2).toList();
   }
+
+  public static List<Integer> streamWithMapToInt(List<Integer> values) {
+    return values.stream().mapToInt(Integer::intValue).map(v -> v * 2).boxed().toList();
+  }
 }

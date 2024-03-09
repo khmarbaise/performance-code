@@ -46,5 +46,9 @@ public class IntegerDuplicationBenchmark {
   public void streamVariant() {
     IntegerDuplication.stream(array);
   }
+  @Benchmark
+  public void streamVariantWithMapToInt() {
+    IntegerDuplication.streamWithMapToInt(array);
+  }
 
 }
