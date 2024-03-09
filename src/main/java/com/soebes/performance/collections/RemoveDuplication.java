@@ -5,12 +5,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public final class RemoveDuplicationStreamVsClassic {
+public final class RemoveDuplication {
 
-  private RemoveDuplicationStreamVsClassic() {
+  private RemoveDuplication() {
   }
 
-  public static int[] removeDuplicates(int[] arr) {
+  public static int[] classicalForLoop(int[] arr) {
     if (arr == null || arr.length == 0) {
       return arr;
     }
@@ -32,7 +32,7 @@ public final class RemoveDuplicationStreamVsClassic {
     return uniqueArr;
   }
 
-  public static int[] removeDuplicatesStream(int[] duplicates) {
+  public static int[] streamBased(int[] duplicates) {
     var collect = IntStream.of(duplicates)
         .boxed()
         .collect(Collectors.toSet());

@@ -1,6 +1,5 @@
 package com.soebes.performance.collections;
 
-import com.soebes.performance.BenchmarkUtils;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -13,6 +12,8 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
@@ -21,29 +22,29 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10, time = 3)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(1)
-public class RemoveDuplicationStreamVsClassicBenchmark {
+public class IntegerDuplicationBenchmark {
 
-  private int[] array;
+  private List<Integer> array;
 
-  @Param({"50", "100", "500", "1000", "2000"})
+  @Param({"50", "100", "500", "1000", "2000", "10000", "100000"})
   private int size;
 
   @Setup
   public void setup() {
-    array = new int[size];
+    array = new ArrayList<>();
     for (int i = 0; i < size; i++) {
-      array[i] = i;
+      array.add(i);
     }
   }
 
   @Benchmark
-  public void removeDuplicatesStream() {
-    RemoveDuplicationStreamVsClassic.removeDuplicatesStream(array);
+  public void classicalForLoop() {
+    IntegerDuplication.classicalForLoop(array);
   }
 
   @Benchmark
-  public void removeDuplicatesClassicalForLoop() {
-    RemoveDuplicationStreamVsClassic.removeDuplicates(array);
+  public void streamVariant() {
+    IntegerDuplication.stream(array);
   }
 
 }
