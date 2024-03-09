@@ -10,8 +10,12 @@ public class Benchmark {
 
   public static void main(String[] args) throws RunnerException, IOException {
     switch (args[0]) {
-      case "integerduplication" : BenchmarkUtils.runBenchmark(IntegerDuplicationClassicalVsStream.class);
-      case "removeduplication" :    BenchmarkUtils.runBenchmark(RemoveDuplicationStreamVsClassic.class);
+      case "integerduplication":
+        BenchmarkUtils.runBenchmark(IntegerDuplicationClassicalVsStream.class);
+        break;
+      case "removeduplication":
+        BenchmarkUtils.runBenchmark(RemoveDuplicationStreamVsClassic.class);
+        break;
       default:
         System.err.println("Unknown benchmark selected.");
     }
