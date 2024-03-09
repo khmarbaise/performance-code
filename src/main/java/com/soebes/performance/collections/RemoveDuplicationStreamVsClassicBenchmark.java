@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10, time = 3)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(1)
-public class StreamVsClassicBenchmark {
+public class RemoveDuplicationStreamVsClassicBenchmark {
 
   private int[] array;
 
@@ -38,16 +38,12 @@ public class StreamVsClassicBenchmark {
 
   @Benchmark
   public void removeDuplicatesStream() {
-    StreamVsClassic.removeDuplicatesStream(array);
+    RemoveDuplicationStreamVsClassic.removeDuplicatesStream(array);
   }
 
   @Benchmark
   public void removeDuplicatesClassicalForLoop() {
-    StreamVsClassic.removeDuplicates(array);
-  }
-
-  public static void main(String[] args) throws Exception {
-    BenchmarkUtils.runBenchmark(StreamVsClassic.class);
+    RemoveDuplicationStreamVsClassic.removeDuplicates(array);
   }
 
 }

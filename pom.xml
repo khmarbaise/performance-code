@@ -17,7 +17,7 @@
   <name>Performance Analyze Code</name>
 
   <properties>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.release>21</maven.compiler.release>
   </properties>
   <dependencies>
     <dependency>
@@ -44,10 +44,20 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/MANIFEST.MF</exclude>
+                    <exclude>LICENSE</exclude>
+                    <exclude>THIRD-PARTY</exclude>
+                  </excludes>
+                </filter>
+              </filters>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
-                    <Main-Class>com.soebes.performance.collections.StreamVsClassicBenchmark</Main-Class>
+                    <Main-Class>com.soebes.performance.collections.RemoveDuplicationStreamVsClassicBenchmark</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>

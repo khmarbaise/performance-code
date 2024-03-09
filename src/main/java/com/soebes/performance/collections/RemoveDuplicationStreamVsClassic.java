@@ -5,9 +5,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public final class StreamVsClassic {
+public final class RemoveDuplicationStreamVsClassic {
 
-  private StreamVsClassic() {
+  private RemoveDuplicationStreamVsClassic() {
   }
 
   public static int[] removeDuplicates(int[] arr) {
