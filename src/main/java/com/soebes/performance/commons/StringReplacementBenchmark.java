@@ -37,20 +37,24 @@ public class StringReplacementBenchmark {
       stringBuilder.append(DIFFERENT_STRINGS.get(i % (DIFFERENT_STRINGS.size() - 1)));
       stringBuilder.append(" ");
     }
+    this.veryLongString = stringBuilder.toString();
   }
 
   @Benchmark
   public void stringReplace_0() {
     StringReplacement.stringReplace(veryLongString, DIFFERENT_STRINGS, 0);
   }
+
   @Benchmark
   public void stringReplace_1() {
     StringReplacement.stringReplace(veryLongString, DIFFERENT_STRINGS, 1);
   }
+
   @Benchmark
   public void stringReplace_2() {
     StringReplacement.stringReplace(veryLongString, DIFFERENT_STRINGS, 2);
   }
+
   @Benchmark
   public void stringReplace_3() {
     StringReplacement.stringReplace(veryLongString, DIFFERENT_STRINGS, 3);
@@ -60,14 +64,17 @@ public class StringReplacementBenchmark {
   public void stringUtilsReplace_0() {
     StringReplacement.stringUtilsReplace(veryLongString, DIFFERENT_STRINGS, 0);
   }
+
   @Benchmark
   public void stringUtilsReplace_1() {
     StringReplacement.stringUtilsReplace(veryLongString, DIFFERENT_STRINGS, 1);
   }
+
   @Benchmark
   public void stringUtilsReplace_2() {
     StringReplacement.stringUtilsReplace(veryLongString, DIFFERENT_STRINGS, 2);
   }
+
   @Benchmark
   public void stringUtilsReplace_3() {
     StringReplacement.stringUtilsReplace(veryLongString, DIFFERENT_STRINGS, 3);
