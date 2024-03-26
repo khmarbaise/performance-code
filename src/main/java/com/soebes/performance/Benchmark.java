@@ -2,6 +2,7 @@ package com.soebes.performance;
 
 import com.soebes.performance.collections.IntegerDuplicationBenchmark;
 import com.soebes.performance.collections.RemoveDuplicationBenchmark;
+import com.soebes.performance.commons.StringReplacementBenchmark;
 import com.soebes.performance.strings.StringAppenderBenchmark;
 import org.openjdk.jmh.runner.RunnerException;
 
@@ -23,6 +24,9 @@ public class Benchmark {
         break;
       case "stringappender":
         BenchmarkUtils.runBenchmark(StringAppenderBenchmark.class);
+        break;
+      case "stringreplacements":
+        BenchmarkUtils.runBenchmark(StringReplacementBenchmark.class);
         break;
       default:
         System.err.println("Unknown benchmark selected.");
