@@ -6,6 +6,7 @@ import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
@@ -20,20 +21,17 @@ import java.util.concurrent.TimeUnit;
 @Fork(1)
 public class PrimitveVsWrapperBenchmark {
 
+  @Param({"100", "1000", "10000", "100000", "1000000", "10000000", "100000000", "1000000000"})
+  private long size;
+
   @Benchmark
   public void summarizeWithWrapper() {
-    Long sum = 0L;
-    for (long i = 0; i < Integer.MAX_VALUE; i++) {
-      sum += i;
-    }
+    PrimitveVsWrapper.summarizeWithWrapper(size);
   }
 
   @Benchmark
   public void summarizeWithPrimitve() {
-    long sum = 0L;
-    for (long i = 0; i < Integer.MAX_VALUE; i++) {
-      sum += i;
-    }
+    PrimitveVsWrapper.summarizeWithPrimitve(size);
   }
 
 }
