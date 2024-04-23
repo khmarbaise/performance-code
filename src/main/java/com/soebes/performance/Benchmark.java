@@ -3,6 +3,7 @@ package com.soebes.performance;
 import com.soebes.performance.collections.IntegerDuplicationBenchmark;
 import com.soebes.performance.collections.RemoveDuplicationBenchmark;
 import com.soebes.performance.commons.StringReplacementBenchmark;
+import com.soebes.performance.primitvevswrapper.PrimitveVsWrapperBenchmark;
 import com.soebes.performance.strings.StringAppenderBenchmark;
 import org.openjdk.jmh.runner.RunnerException;
 
@@ -27,6 +28,9 @@ public class Benchmark {
         break;
       case "stringreplacements":
         BenchmarkUtils.runBenchmark(StringReplacementBenchmark.class);
+        break;
+      case "primitivevswrapper":
+        BenchmarkUtils.runBenchmark(PrimitveVsWrapperBenchmark.class);
         break;
       default:
         System.err.println("Unknown benchmark selected.");
