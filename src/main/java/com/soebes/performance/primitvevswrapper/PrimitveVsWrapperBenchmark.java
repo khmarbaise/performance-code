@@ -34,4 +34,9 @@ public class PrimitveVsWrapperBenchmark {
     PrimitveVsWrapper.summarizeWithPrimitve(size);
   }
 
+  @Benchmark
+  public void summarizeWithStream() {
+    PrimitveVsWrapper.summarizeWithStream(size);
+  }
+
 }
