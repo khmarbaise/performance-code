@@ -44,6 +44,11 @@ public class IntegerDuplicationBenchmark {
   }
 
   @Benchmark
+  public void classicalForLoopWithOptimizations(Blackhole bh) {
+    bh.consume(IntegerDuplication.classicalForLoopWithOptimizations(array));
+  }
+
+  @Benchmark
   public void streamVariant(Blackhole bh) {
     bh.consume(IntegerDuplication.stream(array));
   }
