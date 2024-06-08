@@ -25,15 +25,16 @@ public final class IntegerDuplication {
     return new ArrayList<>(Arrays.asList(array));
   }
 
+  public static List<Integer> classicalForLoopWithOptimizationsUnmodifiable(List<Integer> values) {
+    Integer[] array = values.toArray(Integer[]::new);
+    for (int i = 0; i < array.length; i++) {
+      array[i] = array[i] * 2;
+    }
+    return List.of(array);
+  }
+
   public static List<Integer> stream(List<Integer> values) {
     return values.stream().map(v -> v * 2).toList();
   }
 
-  public static List<Integer> streamParallel(List<Integer> values) {
-    return values.parallelStream().map(v -> v * 2).toList();
-  }
-
-  public static List<Integer> streamWithMapToInt(List<Integer> values) {
-    return values.stream().mapToInt(Integer::intValue).map(v -> v * 2).boxed().toList();
-  }
 }
