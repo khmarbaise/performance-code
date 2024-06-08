@@ -16,6 +16,7 @@ public final class IntegerDuplication {
     }
     return result;
   }
+
   public static List<Integer> classicalForLoopWithOptimizations(List<Integer> values) {
     Integer[] array = values.toArray(Integer[]::new);
     for (int i = 0; i < array.length; i++) {
@@ -26,6 +27,10 @@ public final class IntegerDuplication {
 
   public static List<Integer> stream(List<Integer> values) {
     return values.stream().map(v -> v * 2).toList();
+  }
+
+  public static List<Integer> streamParallel(List<Integer> values) {
+    return values.parallelStream().map(v -> v * 2).toList();
   }
 
   public static List<Integer> streamWithMapToInt(List<Integer> values) {

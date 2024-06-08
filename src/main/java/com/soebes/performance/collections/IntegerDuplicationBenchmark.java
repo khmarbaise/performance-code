@@ -52,6 +52,12 @@ public class IntegerDuplicationBenchmark {
   public void streamVariant(Blackhole bh) {
     bh.consume(IntegerDuplication.stream(array));
   }
+
+  @Benchmark
+  public void streamParallel(Blackhole bh) {
+    bh.consume(IntegerDuplication.streamParallel(array));
+  }
+
   @Benchmark
   public void streamVariantWithMapToInt(Blackhole bh) {
     bh.consume(IntegerDuplication.streamWithMapToInt(array));
