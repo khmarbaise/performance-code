@@ -14,3 +14,7 @@ After the run a json file will be created in the `reports` directory
 which can be used to visualize the results via:
 
 https://jmh.morethan.io/
+
+== Results
+
+image::results/image-2024-06-08-16-18-26-353.png[]
