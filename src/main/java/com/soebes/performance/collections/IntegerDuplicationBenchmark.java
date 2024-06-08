@@ -11,6 +11,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
+import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,17 +39,17 @@ public class IntegerDuplicationBenchmark {
   }
 
   @Benchmark
-  public void classicalForLoop() {
-    IntegerDuplication.classicalForLoop(array);
+  public void classicalForLoop(Blackhole bh) {
+    bh.consume(IntegerDuplication.classicalForLoop(array));
   }
 
   @Benchmark
-  public void streamVariant() {
-    IntegerDuplication.stream(array);
+  public void streamVariant(Blackhole bh) {
+    bh.consume(IntegerDuplication.stream(array));
   }
   @Benchmark
-  public void streamVariantWithMapToInt() {
-    IntegerDuplication.streamWithMapToInt(array);
+  public void streamVariantWithMapToInt(Blackhole bh) {
+    bh.consume(IntegerDuplication.streamWithMapToInt(array));
   }
 
 }
